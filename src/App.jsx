@@ -1,11 +1,28 @@
-
+import {Hero} from "@/sections/Hero";
+import {About} from "@/sections/About";
+import {Projects} from "@/sections/Projects";
+import {Experience} from "@/sections/Experience";
+import {Testimonial} from "@/sections/Testimonial";
+import {Contact} from "@/sections/Contact";
+import {Navbar} from "@/layout/Navbar";
 
 function App() {
 
   return (
-    <>
-     <h1 className=" text-amber-200"> I am building this gradually </h1>
-    </>
+    <div className="min-h-screen overflow-x-hidden">
+      <Navbar />
+
+      <main>
+        <Hero />
+        <About />
+        <Projects />        <Hero />
+        <Experience />
+        <Testimonial />        <Hero />
+        <Contact />
+
+
+      </main>
+    </div>
   )
 }
 
