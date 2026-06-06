@@ -23,7 +23,7 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            {/**button */}
+            {/**button **/}
 
             <div>
                 <Button> Contact Me</Button>
