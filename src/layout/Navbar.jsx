@@ -1,5 +1,6 @@
 import {Button} from "@/components/Button"
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 const navLinks = [
     {href: "#about", label: "About"},
     {href: "#projects", label: "Projects"},
@@ -8,6 +9,8 @@ const navLinks = [
 ];
 
 export const Navbar = () => {
+    const [showMenu, setShowMenu] = useState(false)
+
     return <header className=" fixed top-0 left-0  right-0 bg-transparent py-5 ">
         <nav className="container mx-auto px-6 flex items-center justify-between ">
             <a href="/" className="text-xl font-bold  tracking-tight hover:text-primary">
@@ -32,21 +35,21 @@ export const Navbar = () => {
 
 
             {/** hamburger */}
-            <button className=" flex md:hidden p-2 text-primary">
-                    <Menu size={24} />
+            <button className=" flex md:hidden p-2 text-primary cursor-pointer" onClick={()=> setShowMenu(!showMenu)}>
+                    { showMenu ? < X size={24} /> : <Menu size={24} />  }
             </button>
         </nav>
 
 
-        {/** mobile menu */}
-        <div className="md:hidden glass-strong">
+        {/** mobile menu */} {showMenu &&
+        <div className="md:hidden glass-strong animate-fade-in ">
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
                   {navLinks.map(link =>
                    (
                    <a key={link.href} href={link.href} className="text-lg text-muted-foreground hover:text-foreground "> {link.label} </a>
                 ))}
-                
+                <Button size="sm"> Contact Me</Button>
             </div>
-        </div>
+        </div> }
     </header>;
 }

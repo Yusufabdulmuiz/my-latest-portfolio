@@ -49,3 +49,25 @@
     border: 1px solid color-mix(in srgb, var(--color-border) 90%,  transparent );
   }
 }
+
+
+@layer utilities {
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+      filter: blur(20px);
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade 0.7s ease-in-out both;
+
+  }
+}
